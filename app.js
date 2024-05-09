@@ -1,16 +1,13 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
+const cors = require('cors'); // Import the cors module
+
 const app = express();
-const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors({
-    credentials: true,
-    origin: true
-}));
-
+app.use(cors()); // Enable CORS for all routes
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -31,10 +28,9 @@ app.post("/api/send-email", (req, res) => {
     });
 
     // Email content
-    // Email content
     const mailOptions = {
-        from: "pranjalshukla245@gmail.com", // Sender address (must be your Gmail address)
-        to: "pranjalshukla245@gmail.com", // Recipient address (your email address)
+        from: "pranjalshukla245@gmail.com",
+        to: "pranjalshukla245@gmail.com",
         subject: "New Contact Form Submission",
         html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -47,7 +43,6 @@ app.post("/api/send-email", (req, res) => {
         </div>
     `
     };
-
 
     // Send email
     transporter.sendMail(mailOptions, (error, info) => {
