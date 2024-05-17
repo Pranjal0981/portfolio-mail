@@ -21,16 +21,16 @@ app.post("/api/send-email", (req, res) => {
         port: 465,
         secure: true, // Use SSL
         auth: {
-            user: "pranjalshukla245@gmail.com",
-            pass: "vrph ordc jxjn mifd"
+            user: "sanskarmishra008@gmail.com",
+            pass: "xhfq plez mnar cqbx"
 
         }
     });
 
     // Email content
     const mailOptions = {
-        from: "pranjalshukla245@gmail.com",
-        to: "pranjalshukla245@gmail.com",
+        from: "sanskarmishra008@gmail.com",
+        to: "sanskarmishra008@gmail.com",
         subject: "New Contact Form Submission",
         html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
